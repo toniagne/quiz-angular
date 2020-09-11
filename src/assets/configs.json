@@ -1,30 +1,30 @@
 {
-   "price": 15.00,
-
-    "0": {
+   "price": 25.00,
+    "quiz":
+    [
+      {
     "title": "Qual tipo de sistema você deseja desenvolver?",
-    "helper": "texto ajuda",
-    "questions": [
+    "helper": "Escolha o tipo de plataforma na qual o sistema será utilizado e desenvolvido.",
+    "options": [
         {"question": "É um sistema projetado para utilização através de navegadores como Chrome, Internet Explorer, Firefox, dentre outros, sem necessidade de instalar programas ou softwares.", "label": "sistemas", "value": "1", "work": "30"},
         {"question": "É utilizado por várias fabricantes de celular.", "label": "Sistema mobile", "value": "2", "work": "15"},
         {"question": "É desenvolvido para computadores de mesa e necessita de instalação para o funcionamento do sistema.", "label": "Sistema desktop", "value": "3",  "work": "60"}
     ]},
-
-    "1": {
-        "title": "Você quer adicionar aplicação mobile ao sistema?",
-        "helper": "texto ajuda",
-        "questions": [
-        {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "label": "Android", "value": "1", "work": "30"},
-        {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "iOS", "work": "15"},
-        {"question": "É desenvolvido para computadores de mesa e necessita de instalação para o funcionamento do sistema.", "label": "Android & iOS", "value": "3",  "work": "60"}
-    ]},
-
-    "2": {
-        "title": "Qual visual você deseja ter no seu sistema?",
-        "helper": "texto ajuda",
-        "questions": [
-        {"question": "É um layout simples que dispõe dos templates mais utilizados na web.", "label": "Visual básico",  "work": "30"},
-        {"question": "Com utilização de template base e layout personalizado..", "label": "Visual profissional",  "work": "130"},
-        {"question": "Visual totalmente personalizado e exclusivo para o seu negócio.", "label": "Visual personalizado",  "work": "215"}
-    ]}
+      {
+          "title": "Você quer adicionar aplicação mobile ao sistema?",
+          "helper": "Utilizar mobile.",
+          "options": [
+            {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "label": "Android", "value": "1", "work": "30"},
+            {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "iOS", "work": "15"},
+            {"question": "É desenvolvido para computadores de mesa e necessita de instalação para o funcionamento do sistema.", "label": "Android & iOS", "value": "3",  "work": "60"}
+      ]},
+      {
+          "title": "Em qual plataforma será desenvolvido o App?",
+          "helper": "Escolha entre as plataformas disóníveis.",
+          "options": [
+            {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "label": "Android",  "work": "250"},
+            {"question": "É um sistema operacional móvel exclusivo da Apple Inc para iPhone, iPod, touch e iPad.", "label": "iOS",  "work": "250"},
+            {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "Android e iOS",  "work": "350"}
+        ]}
+    ]
 }

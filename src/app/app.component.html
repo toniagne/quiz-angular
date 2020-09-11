@@ -1,11 +1,11 @@
 <div class="container-fluid px-1 py-5 mx-auto">
-  <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center"  *ngIf="!final">
       <div class="col-xl-12">
-        
+
           <div class="container card b-0 pb-0 mt-0 pt-0">
             <div class="row card-body pt-0 px-0 show" id="card-1">
               <div class="radio-group row justify-content-between px-4 pb-5">
-                
+
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="padding-bottom: 60px">
                       <div class="toolt">
                           <h2 class="text-white">
@@ -13,25 +13,25 @@
                               <i class="fas fa-info-circle pl-2" style="font-size: 15px;"></i>
                           </h2>
                           <span class="toolttext mt-2">
-                              Escolha o tipo de plataforma na qual o sistema será utilizado e desenvolvido.
+                              {{ questionsHelper }}
                           </span>
                       </div>
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-right">
-                      <h3 class="text-white">Valor do Projeto</h3>
-                      <strong><p class="h1 text-salmon">R$ {{ amount | currency }}</p></strong>
+                      <h3 class="text-white">Valor estimado</h3>
+                      <strong><p class="h1 text-salmon">{{ amount | currency:"BRL" }}</p></strong>
                   </div>
               </div>
 
-              
- 
+
+
 
               <mat-horizontal-stepper [linear]="isLinear" #stepper style="background-color:#333;">
-              
-                <mat-step *ngFor="let question of questions">
+
+                <mat-step *ngFor="let question of questions.quiz; let i = index;">
                   <div class="row justify-content-between px-3 mb-4">
-               
-                    <div class="cardd next"  *ngFor="let details of question"  (click)="goForward(stepper, details.label,  details.work, 2)">
+
+                    <div class="cardd next"  *ngFor="let details of question.options; "  (click)="goForward(stepper, details.label,  details.work, i+1)">
                        <div class="face face1">
                          <div class="content">
                            <p class="bruno">
@@ -42,18 +42,146 @@
                        <div class="face face2">
                           <h2 style="font-size: x-large;">{{ details.label }}</h2>
                        </div>
-                    </div>  
-                     
+                    </div>
+
                    </div><br>
-                    <div>
-                      <button class="btn btn-outline-light prev mx-2"  (click)="goBack(stepper, 0)">
+                    <div *ngIf="i > 0">
+                      <button class="btn btn-outline-light prev mx-2"  (click)="goBack(stepper, i - 1)">
                         <span class="fa fa-long-arrow-left pr-1"></span>
                         Voltar
                     </button>
                     </div>
 
                 </mat-step>
-               
+
+                <mat-step>
+                  <div class="row card-body pt-0 px-0" id="card-16">
+                    <div class="text-md-center px-5">
+                      <h5 class="text-white px-5">O valor aproximado do Projeto é de:</h5>
+                      <strong ><p class="preco text-salmon display-4 text-center font-weight-bold" id="preco-final">{{ amount | currency:"BRL" }}</p></strong>
+                    </div>
+                    <div class="px-5">
+                      <h4 class="text-white heading mb-4 pb-1 text-center">
+                        Este valor é uma boa estimativa com poucas informações.
+                        Para saber o valor exato do seu projeto, é necessário uma reunião de vídeo
+                        chamada para realizar uma análise de requisitos. O intuito é detalhar ao máximo o
+                        projeto para passar um preço justo e cumprir o prazo de entrega.
+                      </h4>
+                    </div>
+                    <h5 class="text-white mb-3 text-center">
+                      Profissionais necessários para este projeto:
+                    </h5>
+                    <div class="row pb-3 text-white">
+                      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pt-1">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
+                            Gerente de projetos
+                          </li>
+                          <li class="list-group-item bg-black">
+                            Analista de banco de dados
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pt-1">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item bg-black">
+                            Designer
+                          </li>
+                          <li class="list-group-item">
+                            Analista UX-UI
+                          </li>
+                          <li class="list-group-item">
+                            Desenvolvedor front-end
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pt-1">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item bg-black">
+                            Desenvolvedor back-end
+                          </li>
+                          <li class="list-group-item bg-black">
+                            Tester
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <h5 class="text-white mt-4 mb-0 text-center">
+                      Clique no botão abaixo para solicitar um orçamento.
+                    </h5>
+                    <h6 class="text-white mb-4 text-center">
+                      A nossa equipe entrará em contato para detalhar e entender melhor o seu projeto.
+                    </h6>
+
+                    <!-- Button trigger modal -->
+                    <div class="text-center">
+                      <button type="button" class="btn btn-salmon rounded-0" data-toggle="modal" data-target="#exampleModal">
+                        Orçamento
+                      </button>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Orçamento</h5>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <form id="form-body" action="config/processa_envio.php" method="post">
+                            <div class="modal-body">
+                              <div class="form-group">
+                                <label for="nome">Nome <b class="text-danger">*</b> </label>
+                                <input name="nome" type="text" class="form-control" id="nome" placeholder="Seu nome" maxlength="47">
+                              </div>
+                              <div class="form-group">
+                                <label for="tel">Telefone <b class="text-danger">*</b> </label>
+                                <input name="tel" type="text" class="form-control mask-phone" id="tel" placeholder="(99) 9999-9999" maxlength="17">
+                              </div>
+                              <div class="form-group">
+                                <label for="email">E-mail <b class="text-danger">*</b> </label>
+                                <input name="email" type="text" class="form-control" id="email" placeholder="seuemail@exemplo.com.br" maxlength="47">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="assunto">Assunto <b class="text-danger">*</b> </label>
+                                <input name="assunto" type="text" class="form-control" id="assunto" placeholder="Assunto da mensagem" maxlength="30">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="mensagem">Mensagem <b class="text-danger">*</b> </label>
+                                <textarea name="mensagem" rows="6" class="form-control" id="mensagem" placeholder="Digite o seu texto..." maxlength="500"></textarea>
+                              </div>
+                              <div id="div-errors" style="display: none;">
+                                <div class="alert alert-danger div-error" role="alert">
+                                </div>
+                              </div>
+
+                              <div id="div-success" style="display: none;">
+                                <div class="alert alert-success" role="alert">
+                                  Seu orçamento foi enviado para o e-mail.
+                                </div>
+                              </div>
+
+                              <div id="orcamento" style="display: none;">
+                                <input type="text" name="amount" id="amount">
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-light mt-0" data-dismiss="modal">Fechar</button>
+                              <button type="submit" class="btn btn-salmon btn-block">Enviar Mensagem</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </mat-step>
+
               </mat-horizontal-stepper>
 
 
@@ -61,25 +189,91 @@
           </div>
           </div>
        </div>
-
-
-       
     </div>
-    <div class="row justify-content-md-center px-5 py-2" id="completado">
-      <div class="count text-center col-12 mb-4">
+    <div class="row justify-content-md-center px-5 py-2" *ngIf="!final">
+      <div class="count text-center col-12 mb-4" >
           <p class="mb-sm-0 pb-sm-0 text-white">
               <strong>
-                  <span id="cnt">{{ progress |  number:'1.0-0' }}</span>%
+                  <span id="cnt"> {{ progress |  number:'1.0-0' }} </span>%
               </strong>
               <span class="yellow-text">Completado</span>
           </p>
       </div>
-      <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4  p-0">
+      <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4  p-0"  *ngIf="!final">
         <mat-progress-bar mode="determinate" value="{{ progress }}"></mat-progress-bar>
       </div>
       <a href="http://inovedados.com.br" style="position:fixed;width:60px;height:60px;bottom:20px;right:50px;" target="_blank">
         <img src="assets/inove.png">
     </a>
   </div>
+
+  <div *ngIf="final" class="px-lg-5">
+    <div class="text-md-center px-5" >
+      <h5 class="text-white px-5">O valor aproximado do Projeto é de:</h5>
+      <strong ><p class="preco text-salmon display-4 text-center font-weight-bold" id="preco-final">{{ amount | currency:"BRL" }}</p></strong>
+    </div>
+    <div class="px-5">
+      <h4 class="text-white heading mb-4 pb-1 text-center">
+        Este valor é uma boa estimativa com poucas informações.
+        Para saber o valor exato do seu projeto, é necessário uma reunião de vídeo
+        chamada para realizar uma análise de requisitos. O intuito é detalhar ao máximo o
+        projeto para passar um preço justo e cumprir o prazo de entrega.
+      </h4>
+    </div>
+    <h5 class="text-white mb-3 text-center">
+      Profissionais necessários para este projeto:
+    </h5>
+    <div class="row pb-3 text-white">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pt-1">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Gerente de projetos
+          </li>
+          <li class="list-group-item bg-black">
+            Analista de banco de dados
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pt-1">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-black">
+            Designer
+          </li>
+          <li class="list-group-item">
+            Analista UX-UI
+          </li>
+          <li class="list-group-item">
+            Desenvolvedor front-end
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pt-1">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-black">
+            Desenvolvedor back-end
+          </li>
+          <li class="list-group-item bg-black">
+            Tester
+          </li>
+        </ul>
+      </div>
+    </div>
+    <h5 class="text-white mt-4 mb-0 text-center">
+      Clique no botão abaixo para solicitar um orçamento.
+    </h5>
+    <h6 class="text-white mb-4 text-center">
+      A nossa equipe entrará em contato para detalhar e entender melhor o seu projeto.
+    </h6>
+
+    <!-- Button trigger modal -->
+    <div class="text-center">
+      <button type="button" class="btn btn-salmon rounded-0" (click)="openDialog()">
+        Orçamento
+      </button>
+    </div>
+
+
+  </div>
 </div>
-  
+
+
