@@ -7,9 +7,19 @@
     "helper": "Escolha o tipo de plataforma na qual o sistema será utilizado e desenvolvido.",
     "options": [
         {"question": "É um sistema projetado para utilização através de navegadores como Chrome, Internet Explorer, Firefox, dentre outros, sem necessidade de instalar programas ou softwares.", "label": "sistemas", "value": "1", "work": "30"},
-        {"question": "É utilizado por várias fabricantes de celular.", "label": "Sistema mobile", "value": "2", "work": "15"},
+        {"question": "É utilizado por várias fabricantes de celular.", "label": "Sistema mobile kaçkjlsadjçklasdf  lksadkllkasd fl", "value": "2", "work": "15"},
         {"question": "É desenvolvido para computadores de mesa e necessita de instalação para o funcionamento do sistema.", "label": "Sistema desktop", "value": "3",  "work": "60"}
     ]},
+
+    {
+        "title": "Em qual plataforma será desenvolvido o App?",
+        "helper": "Escolha entre as plataformas disóníveis.",
+        "options": [
+          {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "label": "Android",  "work": "250"},
+          {"question": "É um sistema operacional móvel exclusivo da Apple Inc para iPhone, iPod, touch e iPad.", "label": "iOS",  "work": "250"},
+          {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "Android e iOS",  "work": "350"}
+    ]},
+
       {
           "title": "Você quer adicionar aplicação mobile ao sistema?",
           "helper": "Utilizar mobile.",
@@ -18,13 +28,114 @@
             {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "iOS", "work": "15"},
             {"question": "É desenvolvido para computadores de mesa e necessita de instalação para o funcionamento do sistema.", "label": "Android & iOS", "value": "3",  "work": "60"}
       ]},
+     
       {
-          "title": "Em qual plataforma será desenvolvido o App?",
-          "helper": "Escolha entre as plataformas disóníveis.",
-          "options": [
-            {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "label": "Android",  "work": "250"},
-            {"question": "É um sistema operacional móvel exclusivo da Apple Inc para iPhone, iPod, touch e iPad.", "label": "iOS",  "work": "250"},
-            {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "Android e iOS",  "work": "350"}
-        ]}
+        "title": "Qual visual você deseja ter no seu sistema?",
+        "helper": "Selecione o estilo que irá definir a exibição do seu sistema.",
+        "options": [
+          {"question": "É um layout simples que dispõe dos templates mais utilizados na web.", "label": "Visual Básico",  "work": "250"},
+          {"question": "Com utilização de template base e layout personalizado.", "label": "Visual profissional",  "work": "250"},
+          {"question": "Visual totalmente personalizado e exclusivo para o seu negócio.", "label": "Visual personalizado",  "work": "350"}
+    ]},
+
+    {
+        "title": "Você precisa de um sistema multiárea?",
+        "helper": "Sistema multiárea é um sistema que possui áreas separadas. Ex. (loja virtual, pefil do cliente e perfil do vendedor).",
+        "options": [
+          {"question": "Não tenho a necessidade de um sistema multiárea", "label": "NÃO",  "work": "0"},
+          {"question": "Preciso de um sistema contendo duas áreas isoladas. Ex. (área de acesso ao cliente e painel administrativo para funcionários).", "label": "Sim, duas áreas isoladas",  "work": "250"},
+          {"question": " Preciso de um sistema com mais de duas áreas. Ex. (site, painel do cliente, painel do funcionário e terminal de vendas).", "label": "Sim, duas ou mais áreas personalizadas",  "work": "450"}
+    ]},
+
+    {
+        "title": "Você precisa de um sistema de permissão e controle de usuários?",
+        "helper": "O módulo de permissão é onde limita o acesso do perfil do usuário selecionado.",
+        "options": [
+          {"question": "O sistema não possui necessidade de controlar permissões, todos terão acesso total ao sistema.", "label": "NÃO",  "work": "0"},
+          {"question": "O sistema deve conter um módulo onde se concede ou restringe acessos aos usuário do sistema.", "label": "Sim",  "work": "250"}          
+    ]},
+
+    {
+        "title": "O acesso ao seu sistema é pago? É necessário automatização?",
+        "helper": "O sistema será disponibilizado somente após confirmação de pagamento. Defina também qual é a forma de pagamento, caso o sistema seja pago.",
+        "options": [
+          {"question": "O sistema será desenvolvido para uso próprio, por isso não será cobrado a utilização do sistema e não necessita de automatizar pagamento.", "label": "NÃO",  "work": "0"},
+          {"question": "O sistema será pago, mas não necessita de automatizar o pagamento. A cobrança será manual.", "label": "Sim, porém sem automatização",  "work": "250"},
+          {"question": "O sistema será pago e necessita de automatização do pagamento, utilizando cartão de credito e boleto bancário.", "label": "Sim, via cartão e boleto",  "work": "450"},
+          {"question": "O sistema será pago e necessita de automatização do pagamento, utilizando cartão de crédito, boleto bancário e criptomoedas.", "label": "Sim, cartão, boleto e criptomoedas",  "work": "650"}
+    ]},
+
+    {
+        "title": "Seu sistema precisa de um GED?",
+        "helper": "Gerenciamento Eletrônico de Documentos (GED), é uma tecnologia que facilita gerar, controlar, armazenar, compartilhar e recuperar informações existentes em documentos.",
+        "options": [
+          {"question": "Não preciso de nenhuma assinatura digital ou organização sobre os documentos.", "label": "NÃO",  "work": "0"},
+          {"question": "Sim, preciso de assinatura digital ou organização automatizada sobre os documentos.", "label": "Sim",  "work": "350"}
+    ]},
+
+    {
+        "title": "Seu sistema precisa de funções financeiras, como contas a pagar e a receber? Emissão de boletos e nota fiscal?",
+        "helper": "NF-e, CT-e, etc.",
+        "options": [
+          {"question": "O sistema não terá controle financeiro.", "label": "NÃO",  "work": "0"},
+          {"question": "Sim, o sistema terá controle financeiro com forma de pagamento via boleto bancário.", "label": "Sim, apenas boletos",  "work": "150"},
+          {"question": "Sim, o sistema terá controle financeiro com forma de pagamento por boleto bancário e NFS-e.", "label": "Sim, boletos e NFSe",  "work": "450"},
+          {"question": "Sim, o sistema terá controle financeiro com forma de pagamento por boleto bancário, NFS-e e NFC-e.", "label": "Sim, boletos, NFSe e NFCe",  "work": "550"}
+    ]},
+
+    {
+        "title": "Você precisa integrar com outra plataforma?",
+        "helper": "Será necessário desenvolver um sistema com parâmetros ou normas já existentes?",
+        "options": [
+          {"question": "O sistema não terá integração com outros sistemas.", "label": "NÃO",  "work": "0"},
+          {"question": "Sim, o sistema terá integração com outra plataforma que fornece API para integração.", "label": "Sim, e a plataforma fornece API",  "work": "180"},
+          {"question": "Sim, o sistema terá integração com outra plataforma, mas a plataforma não fornece API para integração.", "label": "Sim, e a plataforma não fornece API",  "work": "300"}
+    ]},
+
+    {
+        "title": "Você precisa exportar informações para outros sistemas?",
+        "helper": "Será necessário um módulo de exportação adequando o sistema a parâmetros e normas já existentes?",
+        "options": [
+          {"question": "Não, o sistema não tem que exportar arquivos para nenhum outro sistema ou app.", "label": "NÃO",  "work": "0"},
+          {"question": "Sim, o sistema terá que exportar informações para outra plataforma que já possui padrões pré definidos.", "label": "Sim",  "work": "180"}
+    ]},
+
+    {
+        "title": "O sistema precisa ser multi-idioma?",
+        "helper": "Seletor de tradução.",
+        "options": [
+          {"question": "Não, o sistema só terá um idioma.", "label": "NÃO",  "work": "0"},
+          {"question": "Sim, o sistema irá funcionar em 2 (dois) idiomas.", "label": "Sim, dois idiomas",  "work": "180"},
+          {"question": "Sim, o sistema irá funcionar em 5 (cinco) ou mais idiomas.", "label": "Sim, cinco idiomas ou mais",  "work": "300"}
+    ]},
+
+    {
+        "title": "Você precisa emitir relatórios?",
+        "helper": "Relatórios",
+        "options": [
+          {"question": "Não, o sistema não terá emissão de relatórios.", "label": "NÃO",  "work": "0"},
+          {"question": "Sim, o sistema terá até 5 (cinco) relatórios pré-definidos.", "label": "Sim, até 5 relatórios pré-definidos",  "work": "180"},
+          {"question": "Sim, o sistema terá até 10 (dez) relatórios pré-definidos.", "label": "Sim, até 10 relatórios pré-definidos",  "work": "300"},
+          {"question": "Sim, o sistema terá relatórios ilimitados e personalizados, podendo pesquisar todas as informações existentes no banco de dados.", "label": "Sim, relatórios personalizados ilimitados",  "work": "400"}
+    ]},
+
+    {
+        "title": "Quantos módulos não abordados anteriormente seu sistema deve ter?",
+        "helper": "Informe quantos módulos o seu sistema precisa ter que não foram citados nas perguntas anteriores.",
+        "options": [
+          {"question": "O sistema tem entre 1 a 5 módulos que não foram citados nas perguntas.", "label": "1-5",  "work": "0"},
+          {"question": "O sistema tem entre 5 a 10 módulos que não foram citados nas perguntas.", "label": "5-10",  "work": "50"},
+          {"question": "O sistema tem entre 10 a 15 módulos que não foram citados nas perguntas.", "label": "10-15",  "work": "80"},
+          {"question": "O sistema possui mais de 15 módulos que não foram citados nas perguntas.", "label": "15+",  "work": "180"}
+    ]},
+
+    {
+        "title": "A aplicação deve funcionar sem internet?",
+        "helper": "Modo off-line",
+        "options": [
+          {"question": "Não, o sistema funcionará online para poder acessá-lo de qualquer lugar que tenha internet.", "label": "NÃO",  "work": "0"},
+          {"question": "Sim, o sistema não ficará conectado à internet e precisará de sincronização quando houver conexão.", "label": "Sim, com sincronização de dados",  "work": "330"}
+    ]}
+
     ]
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import {MatDialog} from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { MailDialogComponent} from './contents/mail-dialog/mail-dialog.component';
 import questionsJSON from '../assets/configs.json';
+import { MailAlertComponent } from './contents/mail-alert/mail-alert.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,6 +29,11 @@ export class AppComponent implements OnInit {
   email: string;
   subject: string;
   message: string;
+
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
+
   constructor(
     private httpClient: HttpClient,
     public dialog: MatDialog
@@ -109,8 +115,19 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.sendMail(result);
     });
+  }
+
+  sendMail(formdata: any) {
+    return this.httpClient.post<any>('api', formdata, this.httpOptions).subscribe(
+      result => {
+        const dialogRef = this.dialog.open(MailAlertComponent, {
+          width: '550px'
+        });
+      }
+    );
+    
   }
 
 }

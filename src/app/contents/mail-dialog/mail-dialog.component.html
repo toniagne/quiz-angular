@@ -1,6 +1,6 @@
 <h1 mat-dialog-title >Orçamento</h1>
 <div class="row">
-  <div class="col-sm-12 text-dark">
+  <div class="col-sm-12">
   <p>Preencha corretamente os dados para que possamos entrar em contato.</p>
 
 
@@ -9,22 +9,17 @@
 </div>
 <mat-form-field class="example-full-width">
   <mat-label>Nome Completo</mat-label>
-  <input matInput [(ngModel)]="data.name" placeholder="Nome Completo">
+  <input matInput [(ngModel)]="data.name" required placeholder="Nome Completo">
 </mat-form-field>
 
 <mat-form-field class="example-full-width">
   <mat-label>E-mail</mat-label>
-  <input matInput email [(ngModel)]="data.email" placeholder="E-mail">
+  <input matInput email [(ngModel)]="data.email" required  placeholder="E-mail">
 </mat-form-field>
 
 <mat-form-field class="example-full-width">
   <mat-label>Telefone/WhatsApp</mat-label>
-  <input matInput [(ngModel)]="data.phone" placeholder="Telefone/WhatsApp">
-</mat-form-field>
-
-<mat-form-field class="example-full-width">
-  <mat-label>Assunto</mat-label>
-  <input matInput [(ngModel)]="data.subject" placeholder="Assunto">
+  <input matInput [(ngModel)]="data.phone" required placeholder="Telefone/WhatsApp">
 </mat-form-field>
 
 <mat-form-field class="example-full-width">

@@ -15,11 +15,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MailDialogComponent } from './contents/mail-dialog/mail-dialog.component';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { MailAlertComponent } from './contents/mail-alert/mail-alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MailDialogComponent
+    MailDialogComponent,
+    MailAlertComponent
   ],
   imports: [
     BrowserModule,
