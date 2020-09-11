@@ -1,0 +1,22 @@
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {AppComponent} from '../../app.component';
+
+
+@Component({
+  selector: 'app-mail-dialog',
+  templateUrl: './mail-dialog.component.html',
+  styleUrls: ['./mail-dialog.component.css']
+})
+export class MailDialogComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<AppComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+
+}
