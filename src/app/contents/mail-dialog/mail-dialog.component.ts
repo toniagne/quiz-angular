@@ -16,7 +16,7 @@ export class MailDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<AppComponent>,
     private userFB: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
+    @Inject(MAT_DIALOG_DATA) public data: Contact) {}
 
   ngOnInit(): void {
     this.formGroup = this.userFB.group({
@@ -41,16 +41,20 @@ export class MailDialogComponent implements OnInit {
         controls[controlName].markAsTouched()
       );
       this.hasFormErrors = true;
+      return;
     }
-    this.data = controls;
-    this.dialogRef.close();
+    this.dialogRef.close(this.prepareUser());
   }
 
-  prepareUser(): Contact {
+  prepareUser(): any {
     const controls = this.formGroup.controls;
     // tslint:disable-next-line:variable-name
-    const _services = new Contact();
+    const _services: any = [];
     _services.name = controls.name.value;
+    _services.email = controls.email.value;
+    _services.phone = controls.phone.value;
+    _services.subject = controls.subject.value;
+    _services.message = controls.message.value;
     return _services;
   }
 

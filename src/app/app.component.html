@@ -7,10 +7,12 @@
       <div class="row p-3">
         <div class="col-sm-6" style="padding-bottom: 60px">
           <div class="toolt">
+
             <h2 class="text-white">
               {{ questionsTitle }}
-              <i class="fas fa-info-circle pl-2" style="font-size: 5px;"><mat-icon>info</mat-icon></i>
+              <mat-icon class="pl-2 center-vertically" inline>info</mat-icon>
             </h2>
+
             <span class="toolttext mt-2"> {{ questionsHelper }}  </span>
           </div>
         </div>
@@ -24,7 +26,7 @@
         <mat-step *ngFor="let question of questions.quiz; let i = index;">
           <div class="row justify-content-between text-center px-5 mb-4">
 
-            <div class="cardd next"  *ngFor="let details of question.options; "  (click)="goForward(stepper, details.label,  details.work, i+1, details.target)">
+            <div class="cardd next"  *ngFor="let details of question.options; "  (click)="goForward(stepper, questionsTitle, details.label,  details.work, i+1, details.target)">
               <div class="face face1">
                 <div class="content">
                   <p class="bruno">

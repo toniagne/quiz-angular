@@ -5,6 +5,8 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { MailDialogComponent} from './contents/mail-dialog/mail-dialog.component';
 import questionsJSON from '../assets/configs.json';
 import { MailAlertComponent } from './contents/mail-alert/mail-alert.component';
+import {FormGroup} from '@angular/forms';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,7 +25,7 @@ export class AppComponent implements OnInit {
   step2 = 0;
   amount = 0;
   price: any = 0;
-
+  formGroup: FormGroup;
   name: string;
   phone: string;
   email: string;
@@ -36,15 +38,6 @@ export class AppComponent implements OnInit {
   ){}
 
   ngOnInit(){
-    const dialogRef = this.dialog.open(MailDialogComponent, {
-      width: '550px'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      if (result){
-        this.sendMail({itens: this.steps, amount: this.amount, formData: result});
-      }
-    });
     this.httpClient.get('../assets/configs.json').subscribe(
       val => {
         this.questions = val;
@@ -69,26 +62,20 @@ export class AppComponent implements OnInit {
   }
 
 // VAI PARA PRÓXIMA PERGUNTA
-  goForward(stepper: MatStepper, resp: any, work: any, step: any, target: any){
+  goForward(stepper: MatStepper, resp: any, question: any, work: any, step: any, target: any){
     const currentStep = target ? target : step;
-    this.changeResult(resp, work, currentStep);
+    this.changeResult(resp, work, currentStep, question);
     stepper.selectedIndex = currentStep;
   }
 
 // TRANSFORMA OS VALORES
-  changeResult(resp, work, step){
+  changeResult(resp, work, step, query = null){
 
     const calc = this.price * work;
     let varQuestionTitle;
     let varQuestionHelper;
 
     if (step === 0) { this.steps = []; }
-
-    if (work === 0) {
-      this.steps.splice(step, 1);
-    } else {
-      this.steps.push({question: this.questions.quiz[step - 1].title, resp, work, price: calc});
-    }
 
     if (this.totalSteps === step){
       varQuestionTitle  = 'Final';
@@ -99,6 +86,14 @@ export class AppComponent implements OnInit {
       varQuestionHelper = this.questions.quiz[step].helper;
     }
 
+    if (work === 0) {
+      this.steps.splice(step, 1);
+    } else {
+      this.steps.push(
+        {
+          question: resp, query, work, price: calc
+        });
+    }
     this.questionsTitle = varQuestionTitle;
     this.questionsHelper = varQuestionHelper;
     this.progress = step * 100 / this.totalSteps;
@@ -121,8 +116,18 @@ export class AppComponent implements OnInit {
       width: '550px'
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
       if (result){
-        this.sendMail({itens: this.steps, amount: this.amount, formData: result});
+        this.sendMail({
+          itens: this.steps, amount: this.amount,
+          formData: {
+            name: result.name,
+            email: result.email,
+            phone: result.phone,
+            subject: result.subject,
+            message: result.message
+          }
+        });
       }
     });
   }

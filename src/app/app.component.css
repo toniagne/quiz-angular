@@ -159,3 +159,7 @@
 ::ng-deep .mat-horizontal-stepper-header-container {
     display: none !important;
   }
+
+.center-vertically{
+  vertical-align: 8px;
+}
