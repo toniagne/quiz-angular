@@ -5,7 +5,8 @@ import {AppComponent} from '../../app.component';
 
 @Component({
   selector: 'mail-alert-dialog',
-  templateUrl: './mail-alert.component.html'
+  templateUrl: './mail-alert.component.html',
+  styleUrls: ['./mail-alert.component.css']
 })
 export class MailAlertComponent {
 

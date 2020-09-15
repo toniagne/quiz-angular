@@ -14,8 +14,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MailDialogComponent } from './contents/mail-dialog/mail-dialog.component';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MailAlertComponent } from './contents/mail-alert/mail-alert.component';
+
+import { LOCALE_ID } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
+import {MatIconModule} from '@angular/material/icon';
+registerLocaleData(localePt)
 
 @NgModule({
   declarations: [
@@ -23,20 +29,25 @@ import { MailAlertComponent } from './contents/mail-alert/mail-alert.component';
     MailDialogComponent,
     MailAlertComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatStepperModule,
-    NgbModule,
-    MatProgressBarModule,
-    MatTabsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    HttpClientModule,
-    MatDialogModule
-  ],
-  providers: [],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatStepperModule,
+        NgbModule,
+        MatProgressBarModule,
+        MatTabsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        HttpClientModule,
+        MatDialogModule,
+        MatIconModule,
+        ReactiveFormsModule,
+    ],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt-BR'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

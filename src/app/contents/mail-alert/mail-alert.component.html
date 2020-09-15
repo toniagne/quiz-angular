@@ -1,14 +1,23 @@
-<h1 mat-dialog-title >Sucesso</h1>
+
 <div class="row">
-  <div class="col-sm-12">
-  <p>Seu orçamento foi enviado com sucesso !.</p>
-  <p>Aguarde nosso contato.</p>
+  <div class="col-sm-12 text-center">
 
+            <div class="dummy-positioning d-flex mt-4">
+              <div class="success-icon">
+                <div class="success-icon__tip"></div>
+                <div class="success-icon__long"></div>
+              </div>
+            </div>
 
+<br>
+    <h2>Seu orçamento foi enviado com sucesso.</h2>
 
-  </div>
 </div>
-
-<div mat-dialog-actions>
-  <button mat-button class="btn btn-salmon rounded-0" (click)="onNoClick()">Fechar.</button>
+</div>
+<div class="row">
+<div class="col-sm-12 mb-4">
+<div mat-dialog-actions class="example-full-width" align="end">
+  <button mat-button class="btn btn-salmon rounded-0" (click)="onNoClick()">Fechar</button>
+</div>
+</div>
 </div>

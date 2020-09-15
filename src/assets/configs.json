@@ -6,29 +6,31 @@
     "title": "Qual tipo de sistema você deseja desenvolver?",
     "helper": "Escolha o tipo de plataforma na qual o sistema será utilizado e desenvolvido.",
     "options": [
-        {"question": "É um sistema projetado para utilização através de navegadores como Chrome, Internet Explorer, Firefox, dentre outros, sem necessidade de instalar programas ou softwares.", "label": "sistemas", "value": "1", "work": "30"},
-        {"question": "É utilizado por várias fabricantes de celular.", "label": "Sistema mobile kaçkjlsadjçklasdf  lksadkllkasd fl", "value": "2", "work": "15"},
-        {"question": "É desenvolvido para computadores de mesa e necessita de instalação para o funcionamento do sistema.", "label": "Sistema desktop", "value": "3",  "work": "60"}
+      {"question": "É um sistema projetado para utilização através de navegadores como Chrome, Internet Explorer, Firefox, dentre outros, sem necessidade de instalar programas ou softwares.", "label": "sistemas WEB", "target": 2, "work": "30"},
+      {"question": "É utilizado por várias fabricantes de celular.", "label": "Sistema mobile", "taget": 1, "work": "15"},
+      {"question": "É desenvolvido para computadores de mesa e necessita de instalação para o funcionamento do sistema.", "label": "Sistema desktop", "target": 2,  "work": "60"}
     ]},
 
     {
         "title": "Em qual plataforma será desenvolvido o App?",
-        "helper": "Escolha entre as plataformas disóníveis.",
+        "helper": "Escolha entre as plataformas disponíveis.",
         "options": [
-          {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "label": "Android",  "work": "250"},
-          {"question": "É um sistema operacional móvel exclusivo da Apple Inc para iPhone, iPod, touch e iPad.", "label": "iOS",  "work": "250"},
-          {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "Android e iOS",  "work": "350"}
+
+          {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "target": 3, "label": "Android",  "work": "250"},
+          {"question": "É um sistema operacional móvel exclusivo da Apple Inc para iPhone, iPod, touch e iPad.", "label": "iOS", "target": 3, "work": "250"},
+          {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "Android e iOS", "target": 3, "work": "350"}
     ]},
 
       {
           "title": "Você quer adicionar aplicação mobile ao sistema?",
-          "helper": "Utilizar mobile.",
+          "helper": "Caso queira desenvolver uma versão para smartphones, tablets, iPads, etc. Selecione uma das opções abaixo.",
           "options": [
-            {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "label": "Android", "value": "1", "work": "30"},
-            {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "iOS", "work": "15"},
+            {"question": "Não tenho interesse em utilizar minha plataforma no mobile.", "target": 3, "label": "Não adicionar mobile",  "work": "0"},
+            {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "value": "3", "label": "Android", "value": "1", "work": "30"},
+            {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "iOS", "work": "15", "value": "3"},
             {"question": "É desenvolvido para computadores de mesa e necessita de instalação para o funcionamento do sistema.", "label": "Android & iOS", "value": "3",  "work": "60"}
       ]},
-     
+
       {
         "title": "Qual visual você deseja ter no seu sistema?",
         "helper": "Selecione o estilo que irá definir a exibição do seu sistema.",
@@ -52,7 +54,7 @@
         "helper": "O módulo de permissão é onde limita o acesso do perfil do usuário selecionado.",
         "options": [
           {"question": "O sistema não possui necessidade de controlar permissões, todos terão acesso total ao sistema.", "label": "NÃO",  "work": "0"},
-          {"question": "O sistema deve conter um módulo onde se concede ou restringe acessos aos usuário do sistema.", "label": "Sim",  "work": "250"}          
+          {"question": "O sistema deve conter um módulo onde se concede ou restringe acessos aos usuário do sistema.", "label": "Sim",  "work": "250"}
     ]},
 
     {

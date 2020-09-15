@@ -7,27 +7,44 @@
 
   </div>
 </div>
-<mat-form-field class="example-full-width">
-  <mat-label>Nome Completo</mat-label>
-  <input matInput [(ngModel)]="data.name" required placeholder="Nome Completo">
-</mat-form-field>
+<form [formGroup]="formGroup" class="form form-group-seperator-dashed">
+  <mat-form-field class="example-full-width">
+    <mat-label>Nome completo</mat-label>
+    <input matInput placeholder="Nome do usuário" required formControlName="name"/>
+    <mat-error>Nome é <strong>obrigatório</strong> </mat-error>
+    <mat-hint align="start">Digite um <strong>nome</strong> </mat-hint>
+  </mat-form-field>
 
-<mat-form-field class="example-full-width">
-  <mat-label>E-mail</mat-label>
-  <input matInput email [(ngModel)]="data.email" required  placeholder="E-mail">
-</mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>E-mail</mat-label>
+    <input matInput email placeholder="E-mail" formControlName="email"/>
+    <mat-error>E-mail é <strong>obrigatório</strong> </mat-error>
+    <mat-hint align="start">Digite um <strong>e-mail</strong> </mat-hint>
+  </mat-form-field>
 
-<mat-form-field class="example-full-width">
-  <mat-label>Telefone/WhatsApp</mat-label>
-  <input matInput [(ngModel)]="data.phone" required placeholder="Telefone/WhatsApp">
-</mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Telefone/WhatsApp</mat-label>
+    <input matInput placeholder="Nome do usuário" formControlName="phone"/>
+    <mat-error>Telefone/WhatsApp é <strong>obrigatório</strong> </mat-error>
+    <mat-hint align="start">Ex.: <strong>(99) 99999-9999</strong> </mat-hint>
+  </mat-form-field>
 
-<mat-form-field class="example-full-width">
-  <mat-label>Obeservações</mat-label>
-  <textarea matInput [(ngModel)]="data.message" placeholder="Observações"></textarea>
-</mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Assunto</mat-label>
+    <input matInput placeholder="Nome do usuário" formControlName="subject"/>
+    <mat-error>Assunto é <strong>obrigatório</strong> </mat-error>
+    <mat-hint align="start">Digite um <strong>assunto</strong> </mat-hint>
+  </mat-form-field>
 
-<div mat-dialog-actions>
-  <button mat-button class="btn btn-salmon rounded-0" (click)="onNoClick()">Não obrigado.</button>
-  <button mat-button class="btn btn-salmon rounded-0" [mat-dialog-close]="data" cdkFocusInitial>Enviar</button>
+  <mat-form-field class="example-full-width">
+    <mat-label>Mensagem</mat-label>
+    <textarea matInput placeholder="Mensagem" rows="5" formControlName="message"></textarea>
+    <mat-error>Mensagem é <strong>obrigatório</strong> </mat-error>
+    <mat-hint align="start">Digite um <strong>nome</strong> </mat-hint>
+  </mat-form-field>
+
+<div mat-dialog-actions class="example-full-width mb-1" align="end">
+  <button mat-button class="btn btn-light mt-0 mr-2" (click)="onNoClick()">Sair</button>
+  <button mat-button class="btn btn-salmon rounded-0" fullWidth (click)="onSubmit()" cdkFocusInitial>Enviar Mensagem</button>
 </div>
+</form>

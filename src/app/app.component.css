@@ -1,22 +1,22 @@
 .containe{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 15px;
     margin: 0 auto;
     padding: 0px;
   }
-  
+
   .cardd{
     position: relative;
     width: 280px;
     height: 330px;
-    margin: 0 auto;
+    margin-right: 10px;
     padding: 0px;
     background: #fff;
     box-shadow: 0 15px 60px rgba(0,0,0, .5);
     border-radius: 0px;
   }
-  
+
   .cardd .face{
     position: absolute;
     bottom: 0;
@@ -27,39 +27,39 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .cardd .face.face1{
     box-sizing: border-box;
     padding: 20px;
   }
-  
+
   .cardd .face.face1 h2{
     margin: 0;
     padding: 0;
   }
-  
+
   .cardd .face.face1 .content{
     font-size:1.2em;
     margin:0;
     padding:0 0 1em 0;
     font-weight:500;
   }
-  
+
   .card .face.face2{
     background: #111;
     transition: 0.5s;
   }
-  
+
   .cardd:nth-child(1) .face.face2{
     background: linear-gradient(20deg, #0e0000, #d90e1f);
     border-radius: 0px;
   }
-  
+
   .cardd:nth-child(2) .face.face2{
     background: linear-gradient(20deg, #0e0000, #d90e1f);
     border-radius: 0px;
   }
-  
+
   .cardd:nth-child(3) .face.face2{
     background: linear-gradient(20deg, #0e0000, #d90e1f);
     border-radius: 0px;
@@ -69,13 +69,13 @@
     background: linear-gradient(45deg, #0e0000, #d90e1f);
     border-radius: 0px;
   }
-  
+
   .cardd:hover .face.face2{
-    height: 60px;
+    height: 100px;
     border-radius: 0 0 0px 0px;
 
   }
-  
+
   .cardd .face.face2:before{
     content:'';
     position: absolute;
@@ -86,16 +86,16 @@
     background: rgba(255,255,255, 0.1);
     border-radius: 0px 0 0 0px;
   }
-  
+
   .cardd .face.face2 h2{
     margin: 0;
     padding: 0;
-    font-size: 10em;
+    font-size: 9em;
     color: #fff;
     transition: 0.5s;
     text-shadow: 0 2px 5px rgba(0,0,0, .2);
   }
-  
+
   .cardd:hover .face.face2 h2{
     font-size: 2em;
   }
@@ -107,7 +107,7 @@
   .card.rounded-0.b-0{
     background-color: #333;
     border: none;
-  } 
+  }
 
   .card-header {
     background-color: #333 !important;
@@ -152,8 +152,8 @@
     display: none !important;
 }
 
-::ng-deep .mat-horizontal-stepper-header { 
-    pointer-events: none !important; 
+::ng-deep .mat-horizontal-stepper-header {
+    pointer-events: none !important;
   }
 
 ::ng-deep .mat-horizontal-stepper-header-container {

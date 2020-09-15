@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   final = false;
   progress = 0;
   totalSteps = 0;
-  questions:any = [];
+  questions: any = [];
   questionsTitle = '';
   questionsHelper = '';
   steps: any = [];
@@ -30,16 +30,21 @@ export class AppComponent implements OnInit {
   subject: string;
   message: string;
 
-  httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
-  };
-
   constructor(
     private httpClient: HttpClient,
     public dialog: MatDialog
   ){}
 
   ngOnInit(){
+    const dialogRef = this.dialog.open(MailDialogComponent, {
+      width: '550px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if (result){
+        this.sendMail({itens: this.steps, amount: this.amount, formData: result});
+      }
+    });
     this.httpClient.get('../assets/configs.json').subscribe(
       val => {
         this.questions = val;
@@ -58,14 +63,16 @@ export class AppComponent implements OnInit {
 
 // RETORNA PARA QUESTÃO ANTERIOR
   goBack(stepper: MatStepper, step){
-    this.changeResult(0, 0, step);
-    stepper.previous();
+    const currentBack = step <= 2 ? 0 : step;
+    this.changeResult(0, 0, currentBack);
+    stepper.selectedIndex = currentBack;
   }
 
 // VAI PARA PRÓXIMA PERGUNTA
-  goForward(stepper: MatStepper, resp:any, work:any, step:any){
-    this.changeResult(resp, work, step)
-    stepper.next();
+  goForward(stepper: MatStepper, resp: any, work: any, step: any, target: any){
+    const currentStep = target ? target : step;
+    this.changeResult(resp, work, currentStep);
+    stepper.selectedIndex = currentStep;
   }
 
 // TRANSFORMA OS VALORES
@@ -80,7 +87,7 @@ export class AppComponent implements OnInit {
     if (work === 0) {
       this.steps.splice(step, 1);
     } else {
-      this.steps.push({resp: resp, work: work, price: calc});
+      this.steps.push({question: this.questions.quiz[step - 1].title, resp, work, price: calc});
     }
 
     if (this.totalSteps === step){
@@ -113,21 +120,23 @@ export class AppComponent implements OnInit {
       data: {name: this.name, phone: this.phone, email: this.email, subject: this.subject, message: this.message},
       width: '550px'
     });
-
     dialogRef.afterClosed().subscribe(result => {
-      this.sendMail(result);
+      if (result){
+        this.sendMail({itens: this.steps, amount: this.amount, formData: result});
+      }
     });
   }
 
   sendMail(formdata: any) {
-    return this.httpClient.post<any>('api', formdata, this.httpOptions).subscribe(
+    console.log(formdata);
+    const httpHeaders = new HttpHeaders();
+    return this.httpClient.post<any>('api/index.php', formdata, {headers: httpHeaders}).subscribe(
       result => {
         const dialogRef = this.dialog.open(MailAlertComponent, {
           width: '550px'
         });
       }
     );
-    
   }
 
 }
