@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
   ){}
 
   ngOnInit(){
+    
     this.httpClient.get('../assets/configs.json').subscribe(
       val => {
         this.questions = val;
@@ -56,7 +57,7 @@ export class AppComponent implements OnInit {
 
 // RETORNA PARA QUESTÃO ANTERIOR
   goBack(stepper: MatStepper, step){
-    const currentBack = step <= 2 ? 0 : step;
+    const currentBack = step <=2 ? 0 : step;
     this.changeResult(0, 0, currentBack);
     stepper.selectedIndex = currentBack;
   }
@@ -86,8 +87,9 @@ export class AppComponent implements OnInit {
       varQuestionHelper = this.questions.quiz[step].helper;
     }
 
+    console.log(this.steps, step);
     if (work === 0) {
-      this.steps.splice(step, 1);
+      this.steps.splice(step -1, 1);
     } else {
       this.steps.push(
         {

@@ -90,14 +90,12 @@
   .cardd .face.face2 h2{
     margin: 0;
     padding: 0;
-    font-size: 9em;
     color: #fff;
     transition: 0.5s;
-    text-shadow: 0 2px 5px rgba(0,0,0, .2);
   }
 
   .cardd:hover .face.face2 h2{
-    font-size: 2em;
+    font-size: 10em;
   }
 
   .cardd:hover .face.face2 img{
@@ -161,5 +159,5 @@
   }
 
 .center-vertically{
-  vertical-align: 8px;
+  vertical-align:-3px;
 }
