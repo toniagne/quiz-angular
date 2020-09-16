@@ -21,7 +21,7 @@ export class MailDialogComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = this.userFB.group({
       name: ['', Validators.required],
-      phone: ['', Validators.required],
+      phone: ['', Validators.required, Validators.minLength(8)],
       email: ['', Validators.required],
       subject: ['', Validators.required],
       message: ['', Validators.required],

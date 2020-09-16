@@ -161,3 +161,9 @@
 .center-vertically{
   vertical-align:-3px;
 }
+
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color:red !important;;
+}
