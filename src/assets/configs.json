@@ -16,17 +16,17 @@
         "helper": "Escolha entre as plataformas disponíveis.",
         "options": [
 
-          {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "target": 3, "label": "Android",  "work": "0"},
-          {"question": "É um sistema operacional móvel exclusivo da Apple Inc para iPhone, iPod, touch e iPad.", "label": "iOS", "target": 3, "work": "0"},
-          {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "Android e iOS", "target": 3, "work": "0"}
+          {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.", "target": 3, "label": "Android",  "work": "400"},
+          {"question": "É um sistema operacional móvel exclusivo da Apple Inc para iPhone, iPod, touch e iPad.", "label": "iOS", "target": 3, "work": "400"},
+          {"question": "É uma aplicação mobile híbrida que irá funcionar tanto no iOS quanto no Android.", "label": "Android e iOS", "target": 3, "work": "800"}
     ]},
 
       {
           "title": "Você quer adicionar aplicação mobile ao sistema?",
           "helper": "Caso queira desenvolver uma versão para smartphones, tablets, iPads, etc. Selecione uma das opções abaixo.",
           "options": [
-            {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.",  "label": "Android", "value": "1", "work": "0"},
-            {"question": "É um sistema operacional mobile híbrido que irá funcionar tanto no iOS quanto no Android.", "label": "Android & iOS", "value": "3",  "work": "0"},
+            {"question": "O Android é o sistema operacional de código aberto para dispositivos móveis. É utilizado por varias fabricantes de celular.",  "label": "Android", "value": "1", "work": "400"},
+            {"question": "É um sistema operacional mobile híbrido que irá funcionar tanto no iOS quanto no Android.", "label": "Android & iOS", "value": "3",  "work": "800"},
             {"question": "Não tenho interesse em desenvolver um app mobile.", "target": 3, "label": "Não adicionar APP",  "work": "0"}
 
       ]},

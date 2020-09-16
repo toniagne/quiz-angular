@@ -8,43 +8,34 @@
   </div>
 </div>
 <form [formGroup]="formGroup" class="form form-group-seperator-dashed">
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width mb-2">
     <mat-label>Nome completo</mat-label>
-    <input matInput placeholder="Nome do usuário" required formControlName="name"/>
-    <mat-error>Nome é <strong>obrigatório</strong> </mat-error>
-    <mat-hint align="start">Digite um <strong>nome</strong> </mat-hint>
+    <input matInput placeholder="Nome completo" required formControlName="name"/>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width mb-2">
     <mat-label>E-mail</mat-label>
     <input matInput email placeholder="E-mail" formControlName="email"/>
-    <mat-error class="mat-error">E-mail é <strong>obrigatório</strong> </mat-error>
-    <mat-hint align="start">Digite um <strong>e-mail</strong> </mat-hint>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width mb-2">
     <mat-label>Telefone/WhatsApp</mat-label>
-    <input matInput placeholder="Nome do usuário" formControlName="phone"/>
-    <mat-error>Telefone/WhatsApp é <strong>obrigatório</strong> </mat-error>
+    <input matInput placeholder="Telefone/WhatsApp" formControlName="phone" [specialCharacters]="[ '(', ')', '-' ]" mask="(00)00009-0000"/>
     <mat-hint align="start">Ex.: <strong>(99) 99999-9999</strong> </mat-hint>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width mb-2">
     <mat-label>Assunto</mat-label>
-    <input matInput placeholder="Nome do usuário" formControlName="subject"/>
-    <mat-error>Assunto é <strong>obrigatório</strong> </mat-error>
-    <mat-hint align="start">Digite um <strong>assunto</strong> </mat-hint>
+    <input matInput placeholder="Assunto" formControlName="subject"/>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width mb-2">
     <mat-label>Mensagem</mat-label>
     <textarea matInput placeholder="Mensagem" rows="5" formControlName="message"></textarea>
-    <mat-error>Mensagem é <strong>obrigatório</strong> </mat-error>
-    <mat-hint align="start">Digite um <strong>nome</strong> </mat-hint>
   </mat-form-field>
 
 <div mat-dialog-actions class="example-full-width mb-1" align="end">
-  <button mat-button class="btn btn-light mt-0 mr-2" (click)="onNoClick()">Sair</button>
+  <button mat-button class="btn btn-light mt-0 mr-2" (click)="onNoClick()">Fechar</button>
   <button mat-button class="btn btn-salmon rounded-0" fullWidth (click)="onSubmit()" cdkFocusInitial>Enviar Mensagem</button>
 </div>
 </form>

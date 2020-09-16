@@ -16,7 +16,7 @@ import { MailDialogComponent } from './contents/mail-dialog/mail-dialog.componen
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MailAlertComponent } from './contents/mail-alert/mail-alert.component';
-
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { LOCALE_ID } from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import {registerLocaleData} from '@angular/common';
@@ -43,6 +43,7 @@ registerLocaleData(localePt)
         MatDialogModule,
         MatIconModule,
         ReactiveFormsModule,
+        NgxMaskModule.forRoot(),
     ],
   providers: [{
     provide: LOCALE_ID,

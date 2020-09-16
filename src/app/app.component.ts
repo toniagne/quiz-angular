@@ -87,7 +87,6 @@ export class AppComponent implements OnInit {
       varQuestionHelper = this.questions.quiz[step].helper;
     }
 
-    console.log(this.steps, step);
     if (work === 0) {
       this.steps.splice(step -1, 1);
     } else {
